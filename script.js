@@ -14,7 +14,7 @@ function displayItems() {
             <div class="product-data" data-identifier="6">
                 <div class="product-name">${product.name}</div>
                 <div class="product-price">${product.currentPrice.toLocaleString()} Ft</div>
-                <div class="product-old-price">${product.previousPrice.toLocaleString()} Ft</div>
+                <div class="product-old-price">${product.previousPrice ? product.previousPrice + " Ft" : ""} </div>
             </div>
         </div>
         `
@@ -22,6 +22,7 @@ function displayItems() {
 }
 
 window.addEventListener("load", displayItems)
+
 
 
 
@@ -74,7 +75,6 @@ dropdownList.addEventListener("change", dropdownValueChange)
 
 const checkBox = document.querySelector("input[type='checkbox']")
 
-
 const checkBoxCheck = () => {
     productsContainer.innerHTML = ""
 
@@ -98,7 +98,6 @@ const checkBoxCheck = () => {
             </div>
             `
         }
-
 
     } else {
 
