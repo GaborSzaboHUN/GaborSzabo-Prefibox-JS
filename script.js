@@ -66,6 +66,8 @@ const dropdownValueChange = (e) => {
     } else if (e.target.value * 1 === 3) {
         displayItems(productList.sort(sortByName).reverse())
     }
+
+    clearSearchBar()
 }
 
 dropdownList.addEventListener("change", dropdownValueChange)
@@ -87,6 +89,8 @@ const checkBoxCheck = () => {
         displayItems(productList)
 
     }
+
+    clearSearchBar()
 }
 
 checkBox.addEventListener("change", checkBoxCheck)
@@ -112,3 +116,7 @@ searchInput.addEventListener("input", (e) => {
         productsContainer.innerHTML = `<div class="product-name">Nem találtunk a keresésnek megfelelő terméket :(</div>`
     }
 })
+
+function clearSearchBar() {
+    searchInput['lastElementChild'].value = ""
+}
