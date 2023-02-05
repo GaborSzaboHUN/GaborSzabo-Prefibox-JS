@@ -80,7 +80,6 @@ const checkBoxCheck = () => {
     productsContainer.innerHTML = ""
 
     if (checkBox.checked === true) {
-
         const discountProducts = productList.filter(product => product.previousPrice !== "")
         displayItems(discountProducts)
 
