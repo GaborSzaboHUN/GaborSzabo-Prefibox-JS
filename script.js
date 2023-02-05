@@ -2,9 +2,9 @@
 
 const productsContainer = document.querySelector(".products")
 
-function displayItems() {
+function displayItems(arr) {
+    arr.forEach(product =>
 
-    for (product of productList) {
         productsContainer.innerHTML += `
         <div class="product">
             <span class="image-container">
@@ -14,19 +14,20 @@ function displayItems() {
             <div class="product-data" data-identifier="6">
                 <div class="product-name">${product.name}</div>
                 <div class="product-price">${product.currentPrice.toLocaleString()} Ft</div>
-                <div class="product-old-price">${product.previousPrice ? product.previousPrice + " Ft" : ""} </div>
+                <div class="product-old-price">${product.previousPrice ? product.previousPrice.toLocaleString() + " Ft" : ""} </div>
             </div>
         </div>
         `
-    }
+    )
 }
 
-window.addEventListener("load", displayItems)
+window.addEventListener("load", displayItems(productList))
 
 
 
 
 /* - - - - - - - - DROPDOWN SORTING - - - - - - - - */
+
 const dropdownList = document.querySelector(".custom-select")
 
 function sortByPriceAscend(arr) {
@@ -81,30 +82,34 @@ const checkBoxCheck = () => {
     if (checkBox.checked === true) {
 
         const discountProducts = productList.filter(product => product.previousPrice !== "")
-        console.log(discountProducts)
-
-        for (product of discountProducts) {
-            productsContainer.innerHTML += `
-            <div class="product">
-                <span class="image-container">
-                    <img
-                        src="${product.image}">
-                </span>
-                <div class="product-data" data-identifier="6">
-                    <div class="product-name">${product.name}</div>
-                    <div class="product-price">${product.currentPrice.toLocaleString()} Ft</div>
-                    <div class="product-old-price">${product.previousPrice.toLocaleString()} Ft</div>
-                </div>
-            </div>
-            `
-        }
+        displayItems(discountProducts)
 
     } else {
-
         displayItems(productList)
 
     }
-
 }
 
 checkBox.addEventListener("change", checkBoxCheck)
+
+
+
+
+/* - - - - - - - - SEARCH BAR - - - - - - - - */
+
+const searchInput = document.querySelector(".search-input")
+
+searchInput.addEventListener("input", (e) => {
+    const value = e.target.value.toLowerCase()
+
+    const filteredProducts = productList.filter(product => {
+        return product.name.toLowerCase().includes(value)
+    })
+
+    productsContainer.innerHTML = ""
+    if (filteredProducts.length) {
+        displayItems(filteredProducts)
+    } else {
+        productsContainer.innerHTML = `<div class="product-name">Nem találtunk a keresésnek megfelelő terméket :(</div>`
+    }
+})
