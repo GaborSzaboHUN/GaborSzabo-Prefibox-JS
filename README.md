@@ -1,4 +1,4 @@
-## Prefibox homework (CSS) for Junior Frontend developer role
+## Prefibox homework (JS) for Junior Frontend developer role
 
 Please find below the attached images about the finished project.
 
