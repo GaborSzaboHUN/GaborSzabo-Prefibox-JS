@@ -10,7 +10,7 @@ Please find below the attached images about the finished project.
 
 ### How to open the project:
 
-- in VS code right click on the index.html and choose Open with live server
+- in VS code right click on the result_page.html and choose Open with live server
 
 
 https://user-images.githubusercontent.com/66555347/216797289-652ad7b7-047e-45ad-8170-2c0af01b43f1.mp4
