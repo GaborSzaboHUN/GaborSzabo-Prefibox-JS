@@ -74,6 +74,7 @@ dropdownList.addEventListener("change", dropdownValueChange)
 
 
 
+
 /* - - - - - - - - CHECKBOX FOR DISCOUNT PRODUCTS - - - - - - - - */
 
 const checkBox = document.querySelector("input[type='checkbox']")
